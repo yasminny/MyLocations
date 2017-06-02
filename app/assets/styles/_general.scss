@@ -1,0 +1,83 @@
+
+main,
+header,
+footer,
+figcaption,
+section,
+div,
+h1,
+ul,
+li,
+h2,
+h3,
+p,
+a {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+html,
+body,
+.app {
+  font: 100% 'Source Sans Pro', sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+//body {
+//  padding-top: 94px;
+//  padding-bottom: 50px;
+//}
+
+.first {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #E5EEC1 0%, #3EACA8 49%, #5A5050 100%);
+}
+
+//rgba(162, 212, 171, 1) 23%,
+//rgba(62, 172, 168, 1) 49%,
+//rgba(84, 122, 130, 1) 62%,
+
+input {
+  border: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:target {
+  color: #2196F3;
+}
+
+//#root,
+//.main-root,
+main {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  padding: 0;
+}

@@ -1,0 +1,85 @@
+.footer-comp {
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #5A5050;
+  text-align: center;
+}
+
+.pages-links {
+  height: 80px;
+}
+
+.gridcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.grid-3 {
+  position: relative;
+}
+
+.fmcircle-out {
+  width: 140px;
+  height: 70px;
+  background: #A2D4AB;
+  text-align: center;
+  display: block;
+  opacity: 1;
+  border-radius: 12%;
+}
+
+.fmcircle-out:hover {
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+
+.fmcircle-out:hover .fmcircle-in p {
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+}
+
+.fmcircle-in {
+  width: 50px;
+  height: 60px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 20%;
+}
+
+.fmcircle-in p {
+  line-height: 182%;
+  transition: all 0.2s linear;
+  border: none;
+  font-size: 2.5rem;
+  color: #3EACAB;
+}
+
+.fmcircle-in span {
+  transition: all 0.2s linear;
+  border: 0;
+  width: 140px;
+  background: #E5EEC1;
+  color: #666666;
+  padding: 1.5px;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  opacity: 0;
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+
+.fmcircle-out:hover .fmcircle-in span {
+  opacity: 1;
+  transition: all 0.2s linear;
+}
