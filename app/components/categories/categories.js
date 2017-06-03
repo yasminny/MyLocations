@@ -92,6 +92,7 @@ class Categories extends React.Component {
           ulElem={ this.catElm }
           {...this.props}
         />
+        <h1>Categories</h1>
         <ul className="categories" ref={(cat) => this.catElm = cat }>
           { this.createCatList() }
         </ul>

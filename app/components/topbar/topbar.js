@@ -55,7 +55,8 @@ class Topbar extends React.Component {
       return this.props.updateCategoryEditMode(this.props.selectedCat, newEditMode);
     }
     else{
-      //set edit mode on first-------------
+      const mode = true;
+      this.props.updateLocationEditMode(this.props.selectedLocationId, mode);
       this.props.history.push(`/locations/location/${ this.props.selectedLocationId }`);
     }
   }
@@ -119,6 +120,18 @@ class Topbar extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
+    deleteCategory(id){
+      dispatch({
+        type: 'DELETE_CATEGORY',
+        id
+      });
+    },
+    addNewCategory(newCat){
+      dispatch({
+        type: 'ADD_NEW_CATEGORY',
+        newCat
+      });
+    },
     deleteLocation(id){
       dispatch({
         type: 'DELETE_LOCATION',
@@ -135,6 +148,13 @@ function mapDispatchToProps(dispatch) {
     updateCategoryEditMode(id, mode){
       dispatch({
         type: 'UPDATE_CATEGORY_EDITMODE',
+        id,
+        mode
+      });
+    },
+    updateLocationEditMode(id, mode){
+      dispatch({
+        type: 'UPDATE_LOCATION_EDITMODE',
         id,
         mode
       });

@@ -30,7 +30,6 @@ else {
 export default function locations (currentData = initialData, action) {
   let newLocations = [...currentData];
   if (action.type === 'ADD_NEW_LOCATION') {
-
     newLocations.push(action.data);
     localStorage.setItem('locations', JSON.stringify(newLocations));
     return newLocations;
@@ -46,6 +45,15 @@ export default function locations (currentData = initialData, action) {
       const index = location.relatedCat.findIndex((cat)=> cat === action.categoryId);
       location.relatedCat.splice(index, 1);
     }});
+    localStorage.setItem('locations', JSON.stringify(newLocations));
+    return newLocations;
+  }
+  if (action.type === 'UPDATE_LOCATION_EDITMODE') {
+    newLocations.map((item)=>{
+      if(item.id === action.id){
+        item.isEditMode = action.mode;
+      }
+    });
     localStorage.setItem('locations', JSON.stringify(newLocations));
     return newLocations;
   }

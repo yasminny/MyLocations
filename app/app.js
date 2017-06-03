@@ -13,7 +13,7 @@ import {Provider} from 'react-redux';
 import Footer from './components/footer/footer';
 import Categories from './components/categories/categories';
 import Locations from './components/locations/locations';
-// import LocationId from './components/location-id/location-id';
+import LocationId from './components/location-id/location-id';
 
 render(
   <Provider store={ store }>
@@ -29,8 +29,11 @@ render(
       <Route exact path="/locations" component={ () => {
         return <Redirect to="/locations/category/all"/>
       }}/>
+      <Route exact path="/locations/location" component={ () => {
+        return <Redirect to="/locations/category/all"/>
+      }}/>
       <Route path="/locations/category/:catId" component={ Locations }/>
-      {/*<Route path="/locations/location/:locId" component={ LocationId }/>*/}
+      <Route path="/locations/location/:locId" component={ LocationId }/>
     </Switch>
     </main>
     <Footer {...this.props}/>

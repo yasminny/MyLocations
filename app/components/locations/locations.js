@@ -16,24 +16,42 @@ class Locations extends React.Component {
     this.updateStateValue = this.updateStateValue.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
       catValue: this.props.match.params.catId.toString()
     });
   }
 
-  updateStateValue(name){
+  updateStateValue(name) {
     this.setState({value: name})
   }
 
   createLocList() {
-    console.log(this.props.locations);
-    return this.props.locations.map((item, index) => {
-      const name = item.name;
-      const id = item.id;
-      const classNameIs = '' + id;
-        return <li key={ id } className={ classNameIs } onClick={() => this.handelClickedLocation(id, name) }>{ name }</li>;
-    })
+    const categoryId = this.props.match.params.catId.toString();
+    if (categoryId !== 'all') {
+      return this.props.locations.map((item) => {
+        const name = item.name;
+        const id = item.id;
+        const classNameIs = '' + id;
+        const relatedCat = item.relatedCat;
+        return relatedCat.map((itemId) => {
+          if (itemId.toString() === categoryId) {
+            return <li key={ id } className={ classNameIs }
+                       onClick={() => this.handelClickedLocation(id, name) }>{ name }</li>;
+          }
+        })
+      })
+    }
+    else {
+      return this.props.locations.map((item, index) => {
+        const name = item.name;
+        const id = item.id;
+        const classNameIs = '' + id;
+        return <li key={ id } className={ classNameIs }
+                   onClick={() => this.handelClickedLocation(id, name) }>{ name }</li>;
+      })
+    }
+
   }
 
   handelClickedLocation(id, name) {
@@ -51,16 +69,20 @@ class Locations extends React.Component {
         return chosenLi = li;
       }
     });
-    chosenLi.classList.toggle('active');
+    return chosenLi.classList.toggle('active');
   }
 
   render(props) {
     const categoryId = this.props.match.params.catId.toString();
     let categoryName;
-    if(categoryId !== 'all'){
-      this.props.categories.forEach((item)=>{if(item.id === categoryId){ categoryName = item.name }});
+    if (categoryId !== 'all') {
+      this.props.categories.forEach((item) => {
+        if (item.id === categoryId) {
+          categoryName = item.name
+        }
+      });
     }
-    else{
+    else {
       categoryName = 'All';
     }
 
