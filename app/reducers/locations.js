@@ -4,14 +4,14 @@ const dummyData = [{
   id: '1111',
   name: 'home',
   address: 'tel aviv, israel',
-  LatLng: '333, 333',
+  latLng: {lat: 32.07762926680949, lng: 34.79069709777832},
   relatedCat: [1],
   isEditMode: false
 }, {
   id: '2222',
   name: 'brother',
   address: 'tel aviv, israel',
-  LatLng: '333, 333',
+  latLng: {lat: 32.07762926680949, lng: 34.79069709777832},
   relatedCat: [2],
   isEditMode: false
 }];
@@ -24,6 +24,17 @@ if (isLocalData) {
   initialData = JSON.parse(isLocalData);
 }
 else {
+  dummyData.sort(function(a, b) {
+    let nameA = a.name.toUpperCase();
+    let nameB = b.name.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
   initialData = dummyData;
 }
 
@@ -31,6 +42,17 @@ export default function locations (currentData = initialData, action) {
   let newLocations = [...currentData];
   if (action.type === 'ADD_NEW_LOCATION') {
     newLocations.push(action.data);
+    newLocations.sort(function(a, b) {
+      let nameA = a.name.toUpperCase();
+      let nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
     localStorage.setItem('locations', JSON.stringify(newLocations));
     return newLocations;
   }
