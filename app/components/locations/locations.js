@@ -1,5 +1,5 @@
 import './locations.scss';
-import Topbar from '../topbar/topbar';
+import Topbar from '../topbar-loc/topbar';
 import React from 'react';
 import {connect} from 'react-redux';
 
@@ -85,6 +85,8 @@ class Locations extends React.Component {
     else {
       categoryName = 'All';
     }
+
+    console.log(this.props.selectedLocationObj);
 
     return (
       <div className="locations-comp">

@@ -1,5 +1,5 @@
 import './categories.scss';
-import Topbar from '../topbar/topbar';
+import Topbar from '../topbar-cat/topbar';
 import React from 'react';
 import {connect} from 'react-redux';
 
